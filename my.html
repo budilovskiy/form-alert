@@ -1,0 +1,96 @@
+<script type="text/ng-template" id="change-password-modal-body.html">
+  <div class="center">
+      <img class="nav-user-photo" src="../assets/ace/avatars/user.jpg"/>
+      <span>
+          &nbsp;
+          <span><h4 class="green">{{ user.username }}</h4></span>
+      </span>
+      <div ng-model="data.user.username"></div>
+  </div>
+  <div class="hr dotted"></div>
+
+  <div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert">
+			<i class="ace-icon fa fa-times"></i>
+		</button>
+
+		<strong>
+			<i class="ace-icon fa fa-times"></i>
+			Oh snap!
+		</strong>
+
+		Change a few things up and try submitting again.
+		<br>
+	</div>
+
+  <div class="form-group" ng-class="{ 'has-error' : pwdForm.pwdCurrent.$invalid && !pwdForm.pwdCurrent.$pristine }">
+      <label class="col-sm-5 control-label" for="form-field-current"> Current password </label>
+      <input type="password" id="form-field-current" name="pwdCurrent" placeholder="Password"
+             class="col-xs-10 col-sm-5"
+             ng-model="pwdata.current" required>
+  </div>
+  <br>
+  <div class="space"></div>
+
+  <div class="form-group" ng-class="{ 'has-error' : pwdForm.pwdNew.$invalid && !pwdForm.pwdNew.$pristine }">
+      <label class="col-sm-5 control-label" for="form-field-new"> New password </label>
+      <input type="password" id="form-field-new" name="pwdNew" placeholder="Password"
+             class="col-xs-10 col-sm-5"
+             ng-model="pwdata.new" required>
+  </div>
+  <br>
+  <div class="space"></div>
+
+  <div class="form-group" ng-class="{ 'has-error' : pwdForm.pwdConfirm.$invalid && !pwdForm.pwdConfirm.$pristine }">
+      <label class="col-sm-5 control-label" for="form-field-confirm"> Confirm password </label>
+      <input type="password" id="form-field-confirm" name="pwdConfirm" placeholder="Password"
+             class="col-xs-10 col-sm-5"
+             ng-model="pwdata.confirm"
+             pw-check="pwdata.confirm != pwdata.new ? 'Passwords don\'t match' : ''"/>
+  </div>
+</script>
+
+<script type="text/ng-template" id="change-password-modal-footer.html">
+  <div class="form-group">
+      <button type="submit" class="btn btn-sm btn-primary">
+          <i class="ace-icon fa fa-check"></i>
+          Save
+      </button>
+      <button class="btn btn-sm" data-dismiss="modal" data-ng-click="cancel()">
+          <i class="ace-icon fa fa-times"></i>
+          Cancel
+      </button>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="change-password-modal.html">
+  <div>
+
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" data-ng-click="close()">&times;</button>
+          <div data-ui-view="modal-header"></div>
+      </div>
+
+      <form name="pwdForm" ng-submit="save()">
+
+          <div class="modal-body">
+              <div class="row">
+
+                  <div class="col-xs-12">
+
+                      <div data-ui-view="modal-body"></div>
+
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="modal-footer">
+              <div data-ui-view="modal-footer"></div>
+          </div>
+
+      </form>
+
+    </div>
+</script>
