@@ -5,24 +5,16 @@
             <div class="box-header with-border">
                 <h3 class="box-title">{{ caption }}</h3>
                 <div class="box-tools pull-right">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                      <li><a href="#" ng-click="addEntity()"><i class="fa fa-fw fa-plus-circle"></i></a></li>
+                      <li><a href="#" ng-click="edit()"><i class="fa fa-fw fa-pencil"></i></a></li>
+                      <li><a href="#" ng-click="delete()"><i class="fa fa-fw fa-trash"></i></a></li>
+                      <li><a href="#" ng-click="search()"><i class="fa fa-fw fa-search"></i></a></li>
+                    </ul>
                     <button type="button" class="btn btn-default btn-sm checkbox-toggle">
                         <i class="icon-only ace-icon fa fa-at"></i>
                         <input type="checkbox" data-ng-model="showAts" ng-change="onShowAtsChange()"/>
                     </button>
-                    <div class="btn-group">
-                        <a class="btn btn-primary btn-sm" href="#" ng-click="addEntity()">
-                          <i class="fa fa-fw fa-plus-circle text-blue"></i>
-                        </a>
-                        <a class="btn btn-primary btn-sm" href="#" ng-click="edit()">
-                          <i class="fa fa-fw fa-pencil text-blue"></i>
-                        </a>
-                        <a class="btn btn-primary btn-sm" href="#" ng-click="delete()">
-                          <i class="fa fa-fw fa-trash text-blue"></i>
-                        </a>
-                        <a class="btn btn-primary btn-sm" href="#" ng-click="search()">
-                          <i class="fa fa-fw fa-search text-blue"></i>
-                        </a>
-                    </div>
                     <div class="btn-group">
                         <a class="btn btn-primary btn-sm" href="#" ng-class="{active: columnsKind == 'all'}"
                            ng-click="setColumnsKind('all')">all</a>
